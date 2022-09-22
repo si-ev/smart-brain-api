@@ -9,14 +9,18 @@ const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
+
 const db = knex({
   // connect to your own database here:
   client: 'pg',
   connection: {
-    host : '127.0.0.1',
-    user : 'aneagoie',
-    password : '',
-    database : 'smart-brain'
+    host : process.env.DB_HOST,
+    user : process.env.DB_USER,
+    password : process.env.DB_PASSWORD,
+    database : process.env.DB_NAME 
   }
 });
 
