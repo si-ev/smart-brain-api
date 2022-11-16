@@ -1,3 +1,4 @@
+//TODO: If the user already exists, show a warning
 const handleRegister = (req, res, db, bcrypt) => {
   const { email, name, password } = req.body;
   if (!email || !name || !password) {
